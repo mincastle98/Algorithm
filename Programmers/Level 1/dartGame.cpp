@@ -41,7 +41,6 @@ int solution(string dartResult) {
 
     return answer;
 }
-//SDT
 
 int main(void) {
     string dartResult = "1S2D*3T";
