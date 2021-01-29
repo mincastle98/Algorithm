@@ -2,11 +2,11 @@ from itertools import combinations
 
 
 def solution(numbers):
-    comb = list(combinations(numbers, 2))
+    answer = [i[0] + i[1] for i in list(combinations(numbers, 2))]
+    answer = list(set(answer))
+    answer.sort()
 
-    sumList = [i[0] + i[1] for i in comb]
-    sumList = list(set(sumList))
-    sumList.sort()
-
-    answer = sumList
     return answer
+
+
+solution([5, 0, 2, 7])
