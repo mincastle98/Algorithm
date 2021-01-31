@@ -15,6 +15,7 @@ def solution(num):
 
         if flag:
             answer += 1
+
     print(answer)
 
 
