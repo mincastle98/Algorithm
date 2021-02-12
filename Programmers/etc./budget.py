@@ -9,6 +9,3 @@ def solution(d, budget):
             budget -= d_
 
     return answer
-
-
-print(solution([2, 2, 3, 3], 10))
