@@ -11,6 +11,3 @@ def solution(people, limit):
         idx += 1
 
     return answer
-
-
-print(solution([70, 50, 80, 50], 100))
