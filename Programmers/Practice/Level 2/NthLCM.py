@@ -1,3 +1,4 @@
+# N개의 최소공배수
 def solution(arr):
     answer = 1
 
