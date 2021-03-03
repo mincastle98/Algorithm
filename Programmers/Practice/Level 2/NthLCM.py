@@ -2,12 +2,16 @@
 def solution(arr):
     answer = 1
 
-    arr.sort()
-    for a in arr:
-        answer *= a
-        for j in range(len(arr)):
-            if arr[j] % a == 0:
-                arr[j] //= a
+    while arr:
+        for i in range(2, arr[0] + 1):
+            if arr[0] % i == 0:
+                answer *= i
+                for j in range(len(arr)):
+                    if arr[j] % i == 0:
+                        arr[j] //= i
+                break
+        if arr[0] == 1:
+            arr = arr[1:]
 
     return answer
 
