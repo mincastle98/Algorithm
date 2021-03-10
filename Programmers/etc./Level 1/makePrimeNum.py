@@ -9,7 +9,7 @@ def solution(nums):
     for c in combList:
         tmp = sum(c)
         flag = True
-        for i in range(2, math.ceil(math.sqrt(tmp)) + 1):
+        for i in range(2, math.floor(math.sqrt(tmp)) + 1):
             if not tmp % i:
                 flag = False
                 break
