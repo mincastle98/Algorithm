@@ -1,3 +1,4 @@
+# 폰켓몬
 def solution(nums):
     nums_ = list(set(nums))
     if len(nums_) > len(nums) // 2:
