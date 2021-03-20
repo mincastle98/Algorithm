@@ -4,7 +4,7 @@ import math
 
 
 def solution(nums):
-    answer = -1
+    answer = 0
     combList = list(combinations(nums, 3))
     for c in combList:
         tmp = sum(c)
@@ -16,7 +16,7 @@ def solution(nums):
         if flag:
             answer += 1
 
-    return answer + 1
+    return answer
 
 
 print(solution([1, 2, 7, 6, 4]))
