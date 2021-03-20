@@ -1,5 +1,4 @@
 # 영어 끝말잇기
-
 def solution(n, words):
     answer = [0, 0]
     used = []
