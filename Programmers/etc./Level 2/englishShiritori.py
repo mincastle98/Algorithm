@@ -5,11 +5,7 @@ def solution(n, words):
     expected = words[0][0]
     for idx, word in enumerate(words):
         if word in used or word[0] != expected:
-            who = (idx + 1) % n
-            when = (idx + 1) // n
-            if who != 0: when += 1
-            if who == 0: who = n
-            return [who, when]
+            return [idx % n + 1, idx // n + 1]
         else:
             used.append(word)
             expected = word[-1]
