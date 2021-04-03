@@ -13,7 +13,6 @@ def makeKey(key, relation):
     return list
 
 
-# 후보키
 def solution(relation):
     answer = 0
     used = []
