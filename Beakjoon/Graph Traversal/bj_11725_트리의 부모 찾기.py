@@ -1,4 +1,7 @@
-from collections import deque
+# 11725 - 트리의 부모 찾기
+import sys
+
+sys.setrecursionlimit(10 ** 6)
 
 N = int(input())
 graph = [set() for _ in range(N + 1)]
@@ -7,17 +10,18 @@ for _ in range(N - 1):
     graph[int(a)] |= {int(b)}
     graph[int(b)] |= {int(a)}
 
-queue = deque()
-queue.append(1)
 visited = [0 for _ in range(N + 1)]
-visited[1] = 1
-while queue:
-    node = queue.popleft()
-    if visited[node]: continue
-    for i in graph[node]:
-        if not visited[i]:
-            queue.append(i)
-            visited[i] = node
+parent = [0 for _ in range(N + 1)]
 
+
+def dfs(node):
+    for v in graph[node]:
+        if parent[node] == v: continue
+        parent[v] = node
+        if not visited[v]:
+            dfs(v)
+
+
+dfs(1)
 for i in range(2, N + 1):
-    print(visited[i])
+    print(parent[i])
