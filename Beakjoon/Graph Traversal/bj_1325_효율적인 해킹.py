@@ -1,8 +1,4 @@
 # 1325 - 효율적인 해킹
-import sys
-
-sys.setrecursionlimit(10 ** 6)
-
 N, M = input().split()
 N, M = int(N), int(M)
 
@@ -12,21 +8,30 @@ for i in range(N + 1):
 
 for _ in range(M):
     a, b = input().split()
-    graph[int(a)] |= {int(b)}
     graph[int(b)] |= {int(a)}
 
-visited = [0 for _ in range(N + 1)]
+linked = []
 
+for i in range(1, N + 1):
+    stack = [i]
+    visited = [0 for _ in range(N + 1)]
+    temp = []
+    while stack:
+        now = stack.pop()
+        for j in graph[now]:
+            if not visited[j]:
+                visited[j] = 1
+                stack.append(j)
+                temp.append(j)
 
-def dfs(node):
-    global linked
-    linked += 1
-    for v in graph[node]:
-        if not visited[v]:
-            dfs(v)
+    if linked:
+        if len(linked[-1][1]) < len(temp):
+            linked.clear()
+            linked.append([i, temp])
+        elif len(linked[-1][1]) == len(temp):
+            linked.append([i, temp])
+    else:
+        linked.append([i, temp])
 
-
-for i in range(N + 1):
-    if not visited[i]:
-        dfs(i)
-        print(linked)
+for i in linked:
+    print(i[0], end=' ')
