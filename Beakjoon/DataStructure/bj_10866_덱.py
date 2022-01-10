@@ -1,3 +1,4 @@
+# 10866 - 덱
 N = int(input())
 commands = []
 for _ in range(N):
