@@ -1,4 +1,4 @@
-# 11279 - 최대 힙(S3)
+# 11279 - 최대 힙(S2)
 import sys
 import heapq
 
