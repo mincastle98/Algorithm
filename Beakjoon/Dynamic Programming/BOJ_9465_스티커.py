@@ -1,25 +1,17 @@
 # 9465 - 스티커(S1)
-from copy import deepcopy
-
-
-def check_axis(x, y):
-    return x >= 0 and y >= 0 and x < n and y < 2
-
-
 T = int(input())
-for _ in range(T):
-    n = int(input())
-    stickers = [list(map(int, input().split())) for _ in range(2)]
 
-    dir = ((0, 1), (0, -1), (1, 0), (-1, 0))
-    expectation = deepcopy(stickers)
-    for i in range(2*n):
-        x, y = i % n, i//n
-        loss = 0
-        for d in dir:
-            if check_axis(x+d[1], y+d[0]):
-                loss += stickers[y+d[0]][x+d[1]]
-        expectation[y][x] -= loss
+for t in range(T):
+    N = int(input())
 
-    for e in expectation:
-        print(e)
+    arr = [list(map(int, input().split())) for _ in range(2)]
+
+    arr[0][1] += arr[1][0]
+    arr[1][1] += arr[0][0]
+
+    for k in range(2, N):
+        arr[0][k] += max(arr[1][k - 1], arr[1][k - 2])
+        arr[1][k] += max(arr[0][k - 1], arr[0][k - 2])
+
+    answer = max(arr[0][N-1], arr[1][N-1])
+    print(answer)
