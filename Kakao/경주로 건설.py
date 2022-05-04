@@ -10,7 +10,8 @@ def solution(board):
     dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
     cost_board = [[0] * board_size for _ in range(board_size)]
 
-    stack = [{"yx": [0, 0], "cost": 0, "visited": [item[:] for item in board], "dir": -1}]
+    stack = [{"yx": [0, 0], "cost": 0, "visited": [item[:]
+                                                   for item in board], "dir": -1}]
     stack[0]["visited"][0][0] = 1
     while stack:
         now = stack.pop()
@@ -31,7 +32,7 @@ def solution(board):
                     next["dir"] = i
 
                     if cost_board[y][x] == 0 \
-                            or min(cost_board[y][x] + 500, next["cost"]) == next["cost"]:
+                            or min(cost_board[y][x] + 499, next["cost"]) == next["cost"]:
                         cost_board[y][x] = next["cost"]
                         stack.append(next)
 
