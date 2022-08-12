@@ -53,14 +53,3 @@ for i in range(N * M):
         arr[i // M][i % M] = 0
 
 print(answer)
-
-# def make_wall(cnt):
-#     if cnt == 3:
-#         bfs()
-#     else:
-#         for i in range(N):
-#             for j in range(M):
-#                 if arr[i][j] == 0:
-#                     arr[i][j] = 1
-#                     make_wall(cnt + 1)
-#                     arr[i][j] = 0
