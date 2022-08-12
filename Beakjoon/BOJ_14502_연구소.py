@@ -4,6 +4,7 @@ from collections import deque
 from copy import deepcopy
 
 
+# BFS를 통해 바이러스로부터 감염될 구역 및 안전구역 count
 def bfs():
     cnt = 0
     start = []
@@ -34,8 +35,9 @@ for i in range(N):
 
 safe_zone = sum(arr, []).count(0)
 dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
-
 answer = 0
+
+# 브루트 포스 방식으로 3개의 벽을 세울 수 있는 모든 경우 확인
 for i in range(N * M):
     if arr[i // M][i % M] == 0:
         arr[i // M][i % M] = 1
